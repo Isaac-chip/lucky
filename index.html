@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抽奖</title>
+</head>
+
+<body>
+    <div class="container mx-auto tex-center">
+        <div class="tex-center flex justify-center">
+            <div class="flex items-center">
+                请选择抽奖部门：
+                <select id="dept" name="dept">
+                    <option value="项目部">项目部</option>
+                    <option value="信息组">信息组</option>
+                    <option value="财务部">财务部</option>
+                    <option value="综合部">综合部</option>
+                    <option value="市场部">市场部</option>
+                    <option value="金融部">金融部</option>
+                </select>
+            </div>
+            <!-- <button id="start-button" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                点击按钮抽奖
+            </button> -->
+
+        </div>
+        <hr>
+        </hr>
+        <div>
+            <div id="project">
+                项目部 :
+            </div>
+            <div id="internet">
+                信息组 :
+            </div>
+            <div id="cw">
+                财务部 :
+            </div>
+            <div id="zh">
+                综合部 :
+            </div>
+            <div id="sc">
+                市场部 :
+            </div>
+            <div id="jr">
+                金融部 :
+            </div>
+        </div>
+    </div>
+
+
+    <div id="my-lucky"></div>
+</body>
+
+</html>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/art-template/4.13.2/index.js"></script> -->
+<script src="https://unpkg.com/lucky-canvas@1.7.25"></script>
+<script src="./index.js"></script>
