@@ -262,12 +262,37 @@ $(document).ready(function () {
       },
     ],
     start: function () {
+    
       let selectDept = document.getElementById("dept").value;
+      if(projectArr.length==5 && selectDept=="项目部"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
+      if(internetArr.length==5 && selectDept=="信息组"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
+      if(cwArr.length==5 && selectDept=="财务部"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
+      if(zhArr.length==5 && selectDept=="综合部"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
+      if(scArr.length==5 && selectDept=="市场部"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
+      if(jrArr.length==5 && selectDept=="金融部"){
+        alert("请选择下一个部门进行抽取")
+        return
+      }
       console.log(selectDept)
       // 开始游戏
       myLucky.play();
       // 使用定时器模拟接口 
-      luckyDog()
+      luckyDog(selectDept)
     },
     end: function (prize) {
       // 游戏停止时触发
@@ -289,15 +314,15 @@ $(document).ready(function () {
         }
         if(document.getElementById("dept").value=="综合部" && prize.name!=undefined){
             $("#zh").append(prize.department+"-"+prize.name+"/");   
-            cwArr.push(prize.department)
+            zhArr.push(prize.department)
         }
         if(document.getElementById("dept").value=="市场部" && prize.name!=undefined){
             $("#sc").append(prize.department+"-"+prize.name+"/");   
-            cwArr.push(prize.department)
+            scArr.push(prize.department)
         }
         if(document.getElementById("dept").value=="金融部" && prize.name!=undefined){
             $("#jr").append(prize.department+"-"+prize.name+"/");   
-            cwArr.push(prize.department)
+            jrArr.push(prize.department)
         }
  
    
@@ -310,17 +335,22 @@ $(document).ready(function () {
     const random = Math.floor(Math.random() * (max - min + 1)) + min;
     const names = selectedMan.map(obj => obj.name)
     const depts =selectedMan.map(obj => obj.department)
-    const flattenedDepts= depts.reduce((acc, curr) => acc.concat(curr), []); 
-    const flattenedNames = names.reduce((acc, curr) => acc.concat(curr), []);
-    if (data[random].department!=selectDept && !flattenedNames.includes(data[random].name) && !(selectDept=="项目部" && projectArr.includes(data[random].department)) && !(selectDept=="信息组" && internetArr.includes(data[random].department)) && !(selectDept=="财务部" && cwArr.includes(data[random].department))&& !(selectDept=="综合部" && zhArr.includes(data[random].department))&& !(selectDept=="市场部" && scArr.includes(data[random].department))&& !(selectDept=="金融部" && jrArr.includes(data[random].department))) {
-      // alert(JSON.stringify(data[random]))
- 
-      console.log(random)
-      console.log(JSON.stringify(data[random]));
-      myLucky.stop(random);
-    //   return random;
-    } else {
-      luckyDog(selectDept);
+    if(selectDept=="项目部" && selectDept!=data[random].department && !names.includes(data[random].name) && !(projectArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else if(selectDept=="信息组" && selectDept!=data[random].department && !names.includes(data[random].name) && !(internetArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else if(selectDept=="财务部" && selectDept!=data[random].department && !names.includes(data[random].name) && !(cwArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else if(selectDept=="综合部" && selectDept!=data[random].department && !names.includes(data[random].name) && !(zhArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else if(selectDept=="市场部" && selectDept!=data[random].department && !names.includes(data[random].name) && !(scArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else if(selectDept=="金融部" && selectDept!=data[random].department && !names.includes(data[random].name) && !(jrArr.includes(data[random].department))){
+        myLucky.stop(random);
+    }else {
+        luckyDog(selectDept) 
     }
+   
+    
   }
 });
