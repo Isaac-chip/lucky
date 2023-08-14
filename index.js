@@ -16,14 +16,14 @@ $(document).ready(function () {
       background: "#e9e8fe",
       fonts: [{ text: "金融部-赵淦辉" }],
     },
-    {
-      id: 3,
-      department: "金融部",
-      name: "罗汉超",
-      position: "金融专员",
-      background: "#b8c5f2",
-      fonts: [{ text: "金融部-罗汉超" }],
-    },
+    // {
+    //   id: 3,
+    //   department: "金融部",
+    //   name: "罗汉超",
+    //   position: "金融专员",
+    //   background: "#b8c5f2",
+    //   fonts: [{ text: "金融部-罗汉超" }],
+    // },
     {
       id: 4,
       department: "综合部",
